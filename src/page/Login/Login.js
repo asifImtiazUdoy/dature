@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login | Dature')
     const {login, googleLogin} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();

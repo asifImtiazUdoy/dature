@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 import Service from './Service';
 
 const AllServices = () => {
+    useTitle('Services | Dature')
     const services = useLoaderData();
 
     return (

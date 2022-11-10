@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { baseUrl } from '../../Helper/Helper';
+import useTitle from '../../Hooks/useTitle';
 
 const Details = () => {
+    useTitle('Details | Dature')
     const {user} = useContext(AuthContext);
     const [active, setActive] = useState(0);
     const [review, setReview] = useState([]);

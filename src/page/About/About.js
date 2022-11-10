@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const About = () => {
+    useTitle('About | Dature')
     return (
         <div className="hero min-h-content bg-base-200 mt-32 py-5">
             <div className="hero-content grid md:grid-cols-2">

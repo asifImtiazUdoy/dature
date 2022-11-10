@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register | Dature')
     const {createUser, googleLogin} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();

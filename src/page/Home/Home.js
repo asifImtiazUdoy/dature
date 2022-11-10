@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 import About from '../About/About';
 import Service from '../Service/Service';
 import Stats from '../Stats/Stats';
 
 const Home = () => {
+    useTitle('Home | Dature')
     const services = useLoaderData();
     return (
         <div>
