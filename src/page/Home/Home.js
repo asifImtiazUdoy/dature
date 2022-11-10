@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import About from '../About/About';
+import Stats from '../Stats/Stats';
 
 const Home = () => {
     return (
@@ -45,6 +47,8 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+                <About></About>
+                <Stats></Stats>
         </div>
     );
 };

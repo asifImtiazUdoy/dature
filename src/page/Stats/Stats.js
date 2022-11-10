@@ -23,7 +23,7 @@ const Stats = () => {
                 <div className="stat-figure text-secondary">
                 <div className="avatar online">
                     <div className="w-16 rounded-full">
-                    <img src="./smile.jpg" alt='Stats'/>
+                        <img src="./smile.jpg" alt='Stats'/>
                     </div>
                 </div>
                 </div>
