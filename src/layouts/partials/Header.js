@@ -43,7 +43,10 @@ const Header = () => {
                 <div className="navbar-end">
                     {
                         user?.email ? 
-                        <button onClick={handleLogOut} className="btn btn-sm px-4 py-2">Logout</button>
+                        <>
+                            <Link to='/my-reviews' className="btn btn-sm px-4 py-2">My Review</Link>
+                            <button onClick={handleLogOut} className="btn btn-sm px-4 py-2">Logout</button>
+                        </>
                         :
                         <Link to="/login" className="btn btn-sm px-4 py-2">Login</Link>
                     }

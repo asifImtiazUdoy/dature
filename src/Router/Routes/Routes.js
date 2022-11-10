@@ -33,6 +33,10 @@ export const routes = createBrowserRouter([
                 loader: ({params}) =>  fetch(`${baseUrl}/services/${params.id}`)
             },
             {
+                path: '/my-reviews',
+                element: <Blog></Blog>
+            },
+            {
                 path: '/blog',
                 element: <Blog></Blog>
             },
