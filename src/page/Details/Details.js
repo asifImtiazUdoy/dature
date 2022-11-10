@@ -40,7 +40,6 @@ const Details = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             if(data.acknowledged){
                 form.reset();
                 alert('Review has been sent');

@@ -6,7 +6,6 @@ import Stats from '../Stats/Stats';
 
 const Home = () => {
     const services = useLoaderData();
-    console.log(services);
     return (
         <div>
             <div className="hero min-h-screen" style={{ backgroundImage: `url("./banner.jpg")` }}>
