@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { baseUrl } from '../../Helper/Helper';
 
 const Details = () => {
+    const {user} = useContext(AuthContext);
     const [active, setActive] = useState(0);
     const [review, setReview] = useState([]);
 
@@ -21,6 +23,7 @@ const Details = () => {
         event.preventDefault();
         const form = event.target;
         const r_name = form.name.value;
+        const email = form.email.value;
         const review = form.review.value;
 
         fetch(`${baseUrl}/review`, {
@@ -31,7 +34,8 @@ const Details = () => {
             body: JSON.stringify({
                 service: _id,
                 name: r_name,
-                review: review
+                review: review,
+                email: email
             })
         })
         .then(res => res.json())
@@ -78,12 +82,23 @@ const Details = () => {
                     }
                 </div>
                 <div className={active === 0 ? 'hidden':''}>
-                    <h3 className="text-3xl font-bold uppercase text-center md:text-left my-8">Write Your Review!</h3>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" name='name' placeholder="Type Your Name" className="input input-bordered w-full mb-4 rounded-sm" required/>
-                        <textarea name='review' className="textarea textarea-bordered rounded-sm w-full" placeholder="Type Your Review"></textarea>
-                        <button type='submit' className="btn btn-primary mt-4 rounded-lg">Submit</button>
-                    </form>
+                    {
+                        user?.email ? 
+                        <>
+                            <h3 className="text-3xl font-bold uppercase text-center md:text-left my-8">Write Your Review!</h3>
+                            <form onSubmit={handleSubmit}>
+                                <input type="text" name='name' placeholder="Type Your Name" className="input input-bordered w-full mb-4 rounded-sm" required/>
+                                <input type="text" name='email' value={user?.email} className="input input-bordered w-full mb-4 rounded-sm" readOnly/>
+                                <textarea name='review' className="textarea textarea-bordered rounded-sm w-full" placeholder="Type Your Review"></textarea>
+                                <button type='submit' className="btn btn-primary mt-4 rounded-lg">Submit</button>
+                            </form>
+                        </>
+                        :
+                        <>
+                            <h3 className="text-3xl font-bold uppercase text-center md:text-left my-8">Please Login First</h3>
+                            <Link to="/login" className="btn btn-sm px-4 py-2">Login</Link>
+                        </>
+                    }
                 </div>
             </div>
         </div>
