@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import { baseUrl } from "../../Helper/Helper";
 import Main from "../../layouts/Main";
 import Home from "../../page/Home/Home";
 import Login from "../../page/Login/Login";
@@ -11,7 +12,8 @@ export const routes = createBrowserRouter([
         children:[
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: `${baseUrl}/services/limit=3`
             },
             {
                 path: '/services',
