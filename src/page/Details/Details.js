@@ -40,9 +40,6 @@ const Details = () => {
             if(data.acknowledged){
                 form.reset();
                 alert('Review has been sent');
-                const reviews = [...review, data];
-                console.log(reviews);
-                // setReview(reviews);
             }
         })
         .catch(e => console.error(e))

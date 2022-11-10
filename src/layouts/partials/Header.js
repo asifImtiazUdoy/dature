@@ -44,7 +44,7 @@ const Header = () => {
                     {
                         user?.email ? 
                         <>
-                            <Link to='/my-reviews' className="btn btn-sm px-4 py-2">My Review</Link>
+                            <Link to='/my-reviews' className="btn btn-sm px-4 py-2 mr-2">My Review</Link>
                             <button onClick={handleLogOut} className="btn btn-sm px-4 py-2">Logout</button>
                         </>
                         :
